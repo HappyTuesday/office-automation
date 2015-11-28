@@ -1,0 +1,6 @@
+{
+  "noop": true,
+  "initCompanyLoaderCount": 1,
+  "initCustomerRecorderCount": 1,
+  "submitTimesLimit": 100,
+}

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Welcome to auto crm recording module</title>
+    <link rel="stylesheet" href="../lib/bootstrap/css/bootstrap.css" charset="utf-8">
+    <link rel="stylesheet" href="../css/site.css" charset="utf-8">
+    <link rel="stylesheet" href="../css/auto-crm-recording.css" charset="utf-8">
+  </head>
+  <body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand hidden-sm" href="">Welcome to auto crm recording module</a>
+        </div>
+        <div class="navbar-collapse collapse" role="navigation">
+          <ul class="nav navbar-nav">
+            <li><a href="#top">Top</a></li>
+            <li><a href="#gov">Gov</a></li>
+            <li><a href="#ali-crm">Ali-CRM</a></li>
+            <li><a href="#setting">Settings</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right hidden-sm">
+            <li><a href="/about">Help</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="main-wrapper">
+        <div id="monitor_panel">
+          <div class="btn-group" role="group">
+            <button type="button" class="btn btn-default">Start</button>
+            <button type="button" class="btn btn-default">Pause</button>
+            <button type="button" class="btn btn-default">Stop</button>
+            <button type="button" class="btn btn-default">Restart</button>
+          </div>
+        </div>
+        <div id="operate_panel">
+          <ul id="iframes_sgs" class="list-unstyled">
+            <li>
+              <iframe class="target sgs" src="http://www.sgs.gov.cn/shaic/appStat!toNameAppList.action"></iframe>
+            </li>
+          </ul>
+          <ul id="iframes_crm" class="list-unstyled">
+            <li><iframe class="target crm" src="https://crm.alibaba-inc.com/noah/platform/customer/createCustomer.xul?&from=caenir&CompanyName="></iframe></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <script src="../js/site.js"></script>
+    <script src="../js/auto-crm-recording.js"></script>
+  </body>
+</html>

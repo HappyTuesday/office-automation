@@ -1,0 +1,18 @@
+.main-wrapper {
+  padding-top: 50px;
+}
+
+iframe.target {
+  width: 100%;
+  display: block;
+  border: none;
+  outline: 1px solid lightgray;
+}
+
+iframe.target.sgs {
+  height: 796px;
+}
+
+iframe.target.crm {
+  height: 573px;
+}
