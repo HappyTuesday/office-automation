@@ -16,3 +16,11 @@ iframe.target.sgs {
 iframe.target.crm {
   height: 573px;
 }
+
+.errors li{
+  color: red;
+}
+
+.logs li{
+  color: green;
+}

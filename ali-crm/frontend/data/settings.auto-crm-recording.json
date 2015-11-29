@@ -3,4 +3,12 @@
   "initCompanyLoaderCount": 1,
   "initCustomerRecorderCount": 1,
   "submitTimesLimit": 100,
+  "sgsUrl": "http://www.sgs.gov.cn/shaic/appStat!toNameAppList.action",
+  "crmUrl": "https://crm.alibaba-inc.com/noah/platform/customer/createCustomer.xul?&from=caenir&CompanyName=",
+  "sgsSearchKeywords": [
+    "服饰","纺织","包装","塑","设备","铝","焊","电气","机械","阀","具","五金","材料",
+    "箱包","工程机械","货架","风机","泵","紧固","电机","胶","皮","钢","特种","合金","橡",""
+  ],
+  "sgsSearchOrgans": ["上海市工商局"],
+  "sgsSearchInPastDays": 1,
 }

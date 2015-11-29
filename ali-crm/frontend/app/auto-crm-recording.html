@@ -36,25 +36,73 @@
     <div class="container">
       <div class="main-wrapper">
         <div id="monitor_panel">
-          <div class="btn-group" role="group">
-            <button type="button" class="btn btn-default">Start</button>
-            <button type="button" class="btn btn-default">Pause</button>
-            <button type="button" class="btn btn-default">Stop</button>
-            <button type="button" class="btn btn-default">Restart</button>
+          <div id="control_panel" data-bind="with: engine">
+            <div class="btn-group" role="group">
+              <button data-bind="click: initialize" class="btn btn-default">Initialize</button>
+              <button data-bind="click: start" class="btn btn-default">Start</button>
+              <button data-bind="click: stop" class="btn btn-default">Stop</button>
+            </div>
+          </div>
+          <div id="status_panel" data-bind="with: status">
+            <div data-bind="text: runningStatus"></div>
+            <div class="loaded-companies">
+              <h4>Loaded Companies</h4>
+              <ul data-bind="foreach: loadedCompanies">
+                <li><span data-bind="text: name"></span></li>
+              </ul>
+            </div>
+            <div class="recorded-companies">
+              <h4>Recorded Companies</h4>
+              <ul data-bind="foreach: recordedCompanies">
+                <li><span data-bind="text: name"></span></li>
+              </ul>
+            </div>
+            <div class="duplicated-companies">
+              <h4>Duplicated Companies</h4>
+              <ul data-bind="foreach: duplicatedCompanies">
+                <li><span data-bind="text: name"></span></li>
+              </ul>
+            </div>
+            <div>Submitted <span data-bind="text: submitTimes"></span> Times</div>
+            <div>Pending Size <span data-ding="text: queueSize"></span></div>
+            <div class="loaders">
+              <ul data-bind="foreach: companyLoaders">
+                <li data-bind="css: {running: running, active: active}">loader</li>
+              </ul>
+            </div>
+            <div class="recorders">
+              <ul data-bind="foreach: customerRecorders">
+                <li data-bind="css: {running: running, active: active}">recorder</li>
+              </ul>
+            </div>
+            <div class="logs">
+              <ul data-bind="foreach: logs">
+                <li data-bind="text: $data"></li>
+              </ul>
+            </div>
+            <div class="errors">
+              <ul data-bind="foreach: errors">
+                <li data-bind="text: $data"></li>
+              </ul>
+            </div>
           </div>
         </div>
-        <div id="operate_panel">
-          <ul id="iframes_sgs" class="list-unstyled">
-            <li>
-              <iframe class="target sgs" src="http://www.sgs.gov.cn/shaic/appStat!toNameAppList.action"></iframe>
+        <div id="operate_panel" data-bind="with: status">
+          <ul id="iframes_sgs" class="list-unstyled" data-bind="foreach: companyLoaders">
+            <li data-bind="if: active">
+              <iframe data-bind="attr: {id: 'iframe_sgs_'+id()}" class="target sgs" src="http://www.sgs.gov.cn/shaic/appStat!toNameAppList.action"></iframe>
             </li>
           </ul>
-          <ul id="iframes_crm" class="list-unstyled">
-            <li><iframe class="target crm" src="https://crm.alibaba-inc.com/noah/platform/customer/createCustomer.xul?&from=caenir&CompanyName="></iframe></li>
+          <ul id="iframes_crm" class="list-unstyled" data-bind="foreach: customerRecorders">
+            <li data-bind="if: active">
+              <iframe data-bind="attr: {id: 'iframe_crm_'+id()}" class="target crm" src="https://crm.alibaba-inc.com/noah/platform/customer/createCustomer.xul?&from=caenir&CompanyName="></iframe>
+            </li>
           </ul>
         </div>
       </div>
     </div>
+    <script src="../lib/jquery-2.1.4.js"></script>
+    <script src="../lib/knockout-3.4.0.js"></script>
     <script src="../js/site.js"></script>
     <script src="../js/auto-crm-recording.js"></script>
   </body>
